@@ -94,7 +94,6 @@ def directory(request):
         'project',
         'user',
         'primary_location',
-        'primary_location__country'
     )
 
     return render(request, 'update_directory.html', {
