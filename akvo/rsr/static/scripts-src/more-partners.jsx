@@ -94,7 +94,7 @@ function loadMorePartners() {
             xmlHttp.onreadystatechange = function() {
                 if (xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status == 200) {
                     thisApp.setState({
-                        partnerships: thisApp.processPartners(JSON.parse(xmlHttp.responseText))
+                        partnerships: thisApp.processPartners(JSON.parse(xmlHttp.responseText).results)
                     });
                 }
             };
