@@ -17,11 +17,10 @@ class ProjectViewSet(PublicProjectViewSet):
     """
     Viewset providing Project data.
     """
-    queryset = Project.objects.select_related(
+    queryset = Project.objects.prefetch_related(
         'categories',
         'keywords',
         'partners',
-    ).prefetch_related(
         'publishingstatus',
     )
     serializer_class = ProjectSerializer
