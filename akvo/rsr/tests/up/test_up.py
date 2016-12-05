@@ -78,7 +78,7 @@ class RsrUpTest(TestCase):
         - Test whether there is a published project available.
         """
         response = self.c.post('/auth/token/?format=json',
-                          {'username': 'TestUser', 'password': 'TestPassword'})
+                               {'username': 'TestUser', 'password': 'TestPassword'})
         self.assertEqual(response.status_code, 200)
 
         contents = json.loads(response.content)
