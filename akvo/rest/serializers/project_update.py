@@ -32,6 +32,7 @@ class ProjectUpdateSerializer(BaseRSRSerializer):
             ProjectUpdateLocation.objects.create(location_target=update, **location_data)
         return update
 
+
 class ProjectUpdateDeepSerializer(ProjectUpdateSerializer):
     """Deep serializer for project updates."""
 

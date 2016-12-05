@@ -252,4 +252,3 @@ def mandatory_or_hidden(validations, field):
                 indications += 'hidden-{0} '.format(str(validation.validation_set.pk))
 
     return indications
-
