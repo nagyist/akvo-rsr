@@ -59,7 +59,15 @@ def typeahead_user_organisations(request):
 
 @api_view(['GET'])
 def typeahead_project(request):
-    projects = Project.objects.all().exclude(title='')
+    from akvo.rsr.views.project import _project_directory_coll
+    if request.GET.get('published', '0') == '0':
+        # Project editor - organization projects, all
+        page = request.rsr_page
+        projects = page.organisation.all_projects() if page else Project.objects.all()
+        projects = projects.exclude(title='')
+    else:
+        # Search bar - organization projects, published
+        projects = _project_directory_coll(request)
     return Response(
         rejig(projects, TypeaheadProjectSerializer(projects, many=True))
     )
